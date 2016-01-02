@@ -1,0 +1,89 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: SOmusic API
+# during dev, should point to your local machine
+host: localhost:6001
+# basePath prefixes all resource paths 
+basePath: /api/1
+# 
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+paths:
+  /ranking:
+    x-swagger-router-controller: ranking_controller
+    get:
+      description: Returns the ranking for today
+      operationId: ranking
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Ranking"
+  /ranking/{date}:
+    x-swagger-router-controller: ranking_controller
+    get:
+      description: Returns the ranking for the given date
+      # used as the method name of the controller
+      operationId: ranking
+      parameters:
+        - name: date
+          in: path
+          description: Date to get the ranking for (format YYYY-MM-DD)
+          required: true
+          type: string
+          format: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Ranking"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+# complex objects have schema definitions
+definitions:
+  Ranking:
+    properties:
+      current:
+        type: string
+      prev:
+        type: string
+      next:
+        type: string
+      entries:
+        type: array
+        items:
+          $ref: "#/definitions/Entry"
+  Entry:
+    properties:
+      link:
+        type: string
+      artist:
+        type: string
+      album:
+        type: string
+      title:
+        type: string
+      count:
+        type: integer
+      children:
+        type: array
+        items:
+          $ref: "#/definitions/Entry"
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string

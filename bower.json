@@ -1,0 +1,17 @@
+{
+  "name": "somusic-webui",
+  "version": "0.0.1",
+  "license": "Apache-2.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "/public/vendor/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "swagger-ui": "~2.1.0",
+    "bootstrap": "~3.3.5"
+  }
+}
