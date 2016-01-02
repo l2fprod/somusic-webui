@@ -1,5 +1,8 @@
 applications:
 - name: somusic-webui
+  hosts:
+  - somusic-webui
+  - somusic
   memory: 256M
   services:
   - cloudant
