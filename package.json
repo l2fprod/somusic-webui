@@ -5,7 +5,7 @@
   "private": true,
   "keywords": [],
   "author": "",
-  "license": "",
+  "license": "Apache-2.0",
   "scripts": {
     "start": "node app.js",
     "postinstall": "bower install --allow-root"
@@ -15,12 +15,12 @@
     "body-parser": "^1.13.1",
     "bower": "~1.4.1",
     "cfenv": "^1.0.0",
-    "cloudant": "^1.1.0",
     "express": "^4.12.3",
-    "swagger-express-mw": "^0.0.4",
     "moment": "^2.10.3",
+    "nano": "^6.1.5",
+    "swagger-express-mw": "^0.0.4",
     "underscore": "^1.8.3"
-  },  
+  },
   "devDependencies": {
     "should": "^5.2.0",
     "supertest": "^0.15.0"
@@ -28,6 +28,5 @@
   "engines": {
     "node": ">=0.10"
   },
-  "license": "Apache-2.0",
   "repository": {}
 }

@@ -23,7 +23,7 @@ function ranking(req, res) {
   console.log("Looking for " + date.format());
 
   var db = Database.instance();
-  db.view("stats", "by_date", {
+  db.view("ranking", "by_date", {
     //limit: 150,
     key: date.format("YYYY-MM-DDTHH:mm:SS.000+0000"),
     include_docs: true
