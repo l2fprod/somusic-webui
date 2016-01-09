@@ -46,17 +46,18 @@ SOmusic is made of several micro-services working together to collect, identify,
   }
 )
 
+Components collect/identify/stats are triggered every once in a while and do not know about each other.
+
+### Spring Boot apps
+
 * [somusic-collect](https://github.com/l2fprod/somusic-collect) queries the IBM Insights for Twitter service, looking for references to music links. It stores the resulting tweets into a IBM Cloudant database. In its current implementation, SOmusic searches for Spotify links – yes, I’m a premium subscriber to Spotify.
 
 * [somusic-identify](https://github.com/l2fprod/somusic-identify) processes this database and resolves music links into song title, artist name, album title and album cover. It uses the Spotify Web API.
 
 * [somusic-stats](https://github.com/l2fprod/somusic-stats) aggregates data by day in its own database.
 
-* [somusic-webui](https://github.com/l2fprod/somusic-webui) makes the aggregated data available to web clients.
-
-Components collect/identify/stats are triggered every once in a while and do not know about each other. The triggering is done through Spring Scheduler.
-
-With no surprise, the front-end used Bootstrap, jQuery and a few plugins (Masonry, handlebars, Moment.js, jQuery Hotkeys). Masonry is responsible for the Pinterest-like layout and resize flow. Bootstrap makes the UI responsive to window size changes and smaller devices.
+### Node.js app
+* [somusic-webui](https://github.com/l2fprod/somusic-webui) makes the aggregated data available to web clients. With no surprise, the front-end used Bootstrap, jQuery and a few plugins (Masonry, handlebars, Moment.js, jQuery Hotkeys). Masonry is responsible for the Pinterest-like layout and resize flow. Bootstrap makes the UI responsive to window size changes and smaller devices.
 
 ## Links
 - https://somusic.mybluemix.net
