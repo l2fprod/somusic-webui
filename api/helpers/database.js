@@ -10,7 +10,7 @@ function instance() {
 var db;
 
 function initialize(appEnv) {
-  var cloudantCreds = appEnv.getServiceCreds("cloudant");
+  var cloudantCreds = appEnv.getServiceCreds("somusic-cloudant");
   console.log("Connecting to", cloudantCreds.url);
   
   var nano = require('nano')(cloudantCreds.url);

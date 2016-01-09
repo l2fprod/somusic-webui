@@ -5,4 +5,4 @@ applications:
   - somusic
   memory: 256M
   services:
-  - cloudant
+  - somusic-cloudant
