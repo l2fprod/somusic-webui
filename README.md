@@ -59,6 +59,15 @@ Components collect/identify/stats are triggered every once in a while and do not
 ### Node.js app
 * [somusic-webui](https://github.com/l2fprod/somusic-webui) makes the aggregated data available to web clients. With no surprise, the front-end used Bootstrap, jQuery and a few plugins (Masonry, handlebars, Moment.js, jQuery Hotkeys). Masonry is responsible for the Pinterest-like layout and resize flow. Bootstrap makes the UI responsive to window size changes and smaller devices.
 
+## Running the app in Bluemix
+
+If you want to have your own version of SOmusic, use the deploy buttons below:
+
+1. [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/l2fprod/somusic-collect) the somusic-collect service
+1. then [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/l2fprod/somusic-identify) the somusic-identify service
+1. then [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/l2fprod/somusic-stats) the somusic-stats service
+1. and finally [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/l2fprod/somusic-webui) the somusic-webui app
+
 ## Links
 - https://somusic.mybluemix.net
 - https://developer.ibm.com/bluemix/2015/05/08/somusic-and-bluemix/
