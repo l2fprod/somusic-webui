@@ -18,7 +18,7 @@
     "express": "^4.12.3",
     "moment": "^2.10.3",
     "nano": "^6.1.5",
-    "swagger-express-mw": "^0.6.0",
+    "swagger-express-mw": "^0.7.0",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
