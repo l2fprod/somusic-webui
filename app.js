@@ -25,7 +25,7 @@ console.log(appEnv);
 
 var newrelicCreds = appEnv.getServiceCreds("newrelic");
 if (newrelicCreds) {
-  require('./newrelic.js').initialize(appEnv.name, newrelicCreds.licenseKey);
+  require('./newrelic.js').initialize("somusic-webui", newrelicCreds.licenseKey);
 }
 
 // get the database ready
