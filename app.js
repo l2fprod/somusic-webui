@@ -23,6 +23,11 @@ var appEnvOpts = vcapLocal ? {vcap:vcapLocal} : {}
 var appEnv = cfenv.getAppEnv(appEnvOpts);
 console.log(appEnv);
 
+var newrelicCreds = appEnv.getServiceCreds("newrelic");
+if (newrelicCreds) {
+  require('./newrelic.js').initialize(appEnv.name, newrelicCreds.licenseKey);
+}
+
 // get the database ready
 var Database = require("./api/helpers/database.js");
 Database.initialize(appEnv);
