@@ -10,3 +10,5 @@ applications:
   memory: 256M
   services:
   - somusic-cloudant
+  env:
+    NEW_RELIC_APP_NAME: somusic-webui
