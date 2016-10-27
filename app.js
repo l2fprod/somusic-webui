@@ -1,14 +1,6 @@
 /*jshint node:true*/
 'use strict';
-
-// This application uses express as it's web server
-// for more info, see: http://expressjs.com
-var
-  express = require('express'),
-  app = express(),
-  SwaggerExpress = require('swagger-express-mw'),
-  cfenv = require('cfenv'),
-  bodyParser = require('body-parser');
+var cfenv = require('cfenv');
 
 // load local VCAP configuration
 var vcapLocal = null
@@ -27,6 +19,12 @@ var newrelicCreds = appEnv.getServiceCreds("newrelic");
 if (newrelicCreds) {
   require('./newrelic.js').initialize("somusic-webui", newrelicCreds.licenseKey);
 }
+
+var
+  express = require('express'),
+  app = express(),
+  SwaggerExpress = require('swagger-express-mw'),
+  bodyParser = require('body-parser');
 
 // get the database ready
 var Database = require("./api/helpers/database.js");
