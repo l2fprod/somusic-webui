@@ -12,9 +12,13 @@ var db;
 function initialize(appEnv) {
   var cloudantCreds = appEnv.getServiceCreds("somusic-cloudant");
   console.log("Connecting to", cloudantCreds.url);
-  
-  var nano = require('nano')(cloudantCreds.url);
-  db = nano.use("somusic-stats");
+
+  db = require('cloudant')({
+    url: cloudantCreds.url,
+    plugin: 'retry',
+    retryAttempts: 5,
+    retryTimeout: 500
+  }).db.use("somusic-stats");
   db.get('_design/ranking/_view/by_date', function (err, body) {
       if (err && err.error == "not_found") {
         console.log("View does not exist. Creating it.")

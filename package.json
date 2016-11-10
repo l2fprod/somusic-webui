@@ -11,20 +11,20 @@
     "postinstall": "bower install --allow-root"
   },
   "dependencies": {
-    "async": "^2.0.0-rc.6",
-    "body-parser": "^1.13.1",
-    "bower": "~1.7.9",
-    "cfenv": "^1.0.0",
-    "express": "^4.12.3",
-    "moment": "^2.10.3",
-    "nano": "^6.1.5",
-    "newrelic": "^1.32.0",
-    "swagger-express-mw": "^0.6.0",
+    "async": "^2.1.2",
+    "body-parser": "^1.15.2",
+    "bower": "~1.8.0",
+    "cfenv": "^1.0.3",
+    "cloudant": "^1.6.1",
+    "express": "^4.14.0",
+    "moment": "^2.16.0",
+    "newrelic": "^1.33.0",
+    "swagger-express-mw": "^0.7.0",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
-    "should": "^9.0.2",
-    "supertest": "^1.2.0"
+    "should": "^11.1.1",
+    "supertest": "^2.0.1"
   },
   "repository": {}
 }
