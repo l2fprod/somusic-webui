@@ -8,7 +8,7 @@
       get: function(startDate, endDate) {
         var deferred = $q.defer();
 
-        $http.get("/api/1/ranking/" + startDate).success(function (data) {
+        $http.get("/api/1/ranking/" + startDate + "/" + endDate).success(function (data) {
           deferred.resolve(data);
         }).error(function () {
           deferred.reject();

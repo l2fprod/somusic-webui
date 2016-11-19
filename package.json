@@ -15,11 +15,10 @@
     "body-parser": "^1.15.2",
     "bower": "~1.8.0",
     "cfenv": "^1.0.3",
-    "cloudant": "^1.6.1",
+    "cloudant": "^1.6.2",
     "express": "^4.14.0",
     "moment": "^2.16.0",
-    "newrelic": "^1.33.0",
-    "swagger-express-mw": "^0.7.0",
+    "newrelic": "^1.34.0",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
