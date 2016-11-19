@@ -1,0 +1,46 @@
+<div class="home" ng-controller="HomeController as controller">
+  <md-tabs class="period-selector" md-border-bottom md-autoselect>
+    <md-tab label="Today" md-on-select="controller.today();">
+    </md-tab>
+    <md-tab label="This week" md-on-select="controller.thisWeek();">
+    </md-tab>
+    <md-tab label="This month" md-on-select="controller.thisMonth();">
+    </md-tab>
+    <md-tab label="This year" md-on-select="controller.thisYear();">
+    </md-tab>
+  </md-tabs>
+
+  <div layout="row" class="hero-entries-container">
+    <!-- big image -->
+    <div flex="50" class="super-hero-entry-container">
+      <somusic-entry entry="controller.rankings.entries[0]" hero="true"/>
+    </div>
+    <div flex="25">
+      <div layout="column">
+        <div class="hero-entry-container-1">
+          <somusic-entry entry="controller.rankings.entries[1]" hero="true"/>
+        </div>
+        <div class="hero-entry-container-3">
+          <somusic-entry entry="controller.rankings.entries[3]" hero="true"/>
+        </div>
+      </div>
+    </div>
+    <div flex="25">
+      <div layout="column">
+        <div class="hero-entry-container-2">
+          <somusic-entry entry="controller.rankings.entries[2]" hero="true"/>
+        </div>
+        <div class="hero-entry-container-4">
+          <somusic-entry entry="controller.rankings.entries[4]" hero="true"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div layout="row" layout-wrap>
+    <div class="entry-container" ng-if="$index > 4" ng-repeat="entry in controller.rankings.entries" flex="20">
+      <somusic-entry entry="entry"/>
+    </div>
+  </div>
+
+</div>

@@ -6,79 +6,31 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>SOmusic - music from social network</title>
+  <title>SOmusic</title>
 
-  <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="vendor/angular-material/angular-material.min.css">
   <link rel="stylesheet" href="css/somusic.css">
+  <link rel="stylesheet" href="css/somusic-dark.css" id="theme">
+  <link rel="icon" type="image/x-icon" sizes="any" href="images/favico.png"/>
 </head>
+<body ng-app="somusicApp" ng-cloak layout="row" ng-controller="MainController as controller">
+  <div layout="column" layout-fill>
+    <header>
+      <md-toolbar>
+        <div class="md-toolbar-tools">
+          <md-icon md-svg-src="images/favico.svg"></md-icon>
+          <span class="title md-title">
+            SOmusic
+          </span>
+          <span class="subtitle">
+            music from social network
+          </span>
+          <span flex></span>
 
-<body>
-
-  <script id="tile-template" type="text/x-handlebars-template">
-    <div class="tile">
-      <div class="tileWrapper">
-        <div class="hoverMask"></div>
-        <div class="tileImage">
-          <a target="player" href="{{link}}" title="{{title}}{{#if title}} / {{/if}}{{album}}{{#if album}} / {{/if}}{{artist}}"><img src="{{image}}" /></a>
-        </div>
-      </div>
-      <div class="tileDetails">
-        <div class="tileDescription">
-          <div class="tileTitle">{{title}}</div>
-          <div class="tileAlbum">{{album}}</div>
-          <div class="tileArtist">by {{artist}}</div>
-        </div>
-        <div class="tileStats">
-          SOmusic {{count}}
-        </div>
-      </div>
-    </div>
-  </script>
-
-  <header id="header" class="header navbar-fixed-top container-fluid">
-    <div class="row">
-      <div class="col-md-6 col-xs-6 main-title">
-        <span class="main-title">SOmusic</span> <span class="sub-title hidden-xs hidden-ms">music from social network</span>
-      </div>
-      <div class="col-md-2 col-xs-2 navigation-current">
-        <span id="current"><span class="loading glyphicon glyphicon-refresh glyphicon-refresh-animate"></span></span>
-      </div>
-      <div class="col-md-2 col-xs-2 navigation-previous">
-        <a id="previous"><span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span></a>
-      </div>
-      <div class="col-md-2 col-xs-2 navigation-next">
-        <a id="next"><span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></a>
-      </div>
-    </div>
-  </header>
-
-  <div id="banner">
-    <span class="banner-title">SOmusic</span>
-    <br/>
-    <span class="banner-subtitle-word">Bluemix</span>
-    <span class="banner-subtitle">+</span>
-    <span class="banner-subtitle-word">Twitter</span>
-    <span class="banner-subtitle">+</span>
-    <span class="banner-subtitle-word">Spotify</span>
-    <div class="banner-follow-me">
-      <a href="https://twitter.com/l2fprod" class="twitter-follow-button" data-show-count="false" data-size="large" data-dnt="true">Follow @l2fprod</a>
-    </div>
-  </div>
-
-  <div class="container-fluid tiles-container">
-    <div id="tiles">
-      <div class="tiles-loading">
-        <span class="loading glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
-        <br/> bringing you charts from a social network near you...</div>
-    </div>
-  </div>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-4">
-          <h3>stay in touch</h3>
+          <md-switch ng-model="lightTheme" ng-change="setTheme(lightTheme ? 'css/somusic-light.css': 'css/somusic-dark.css')"></md-switch>
+          <md-button class="md-icon-button" href="https://github.com/l2fprod/somusic-webui">
+            <md-icon md-svg-src="images/github-circle.svg"></md-icon>
+          </md-button>
           <a href="https://twitter.com/l2fprod" class="twitter-follow-button" data-show-count="false" data-size="large" data-dnt="true">Follow @l2fprod</a>
           <script>
             ! function(d, s, id) {
@@ -93,42 +45,89 @@
             }(document, 'script', 'twitter-wjs');
 
           </script>
-        </div>
-        <div class="col-sm-4">
-          <h3>powered by</h3>
-          <ul>
-            <li>
-              <a href="https://bluemix.net">IBM Bluemix</a>
-            </li>
-            <li>
-              <a href="https://cloudant.com">IBM Cloudant</a>
-            </li>
-            <li>
-              <a href="https://console.ng.bluemix.net/catalog/insights-for-twitter/">IBM Insights for Twitter</a>
-            </li>
-            <li>
-              <a href="https://developer.spotify.com/web-api/">Spotify Web API</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-sm-4">
-          <h3>for developers</h3>
-          <ul>
-            <li><a href="/apidocs/?url=/api/swagger/swagger.yaml">SOmusic API</a></li>
-            <li><a href="https://github.com/l2fprod/somusic-webui">source code</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
 
-  <script src="vendor/jquery/dist/jquery.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/masonry/3.2.2/masonry.pkgd.min.js"></script>
-  <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.0/handlebars.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js"></script>
-  <script src="js/jquery.hotkeys.js"></script>
-  <script src="js/somusic.js"></script>
+        </div>
+      </md-toolbar>
+    </header>
+    <spinner>
+      <md-progress-linear class="loadingProgress" id="loadingProgress" md-mode="indeterminate"></md-progress-linear>
+    </spinner>
+
+    <div class="container" layout="row" flex>
+      <div class="sidebar" flex="20">
+        <span class="md-headline">
+          About
+        </span>
+        <p>
+          People are sharing what they are listening to on social networks.
+        </p>
+        <p>
+          SOmusic gathers this information and produces rankings.
+          It's your daily dose of what's popular on social networks.
+        </p>
+        <p>
+          SOmusic is built with <a href="https://ibm.com/bluemix">IBM Bluemix</a>,
+          Cloudant, <a href="https://console.ng.bluemix.net/catalog/insights-for-twitter/">Insights for Twitter</a> and the Spotify Web API.
+        </p>
+      </div>
+      <main flex>
+        <div ui-view>
+          <p>
+            content here
+          </p>
+        </div>
+      </main>
+    </div>
+
+
+      <!-- <md-sidenav md-is-open="true" class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+   <md-toolbar class="md-theme-light">
+     <h1 class="md-toolbar-tools">Sidenav Right</h1>
+   </md-toolbar>
+   <md-content layout-padding>
+     <form>
+       <md-input-container>
+         <label for="testInput">Test input</label>
+         <input type="text" id="testInput"
+                ng-model="data" md-autofocus>
+       </md-input-container>
+     </form>
+     <md-button ng-click="close()" class="md-primary">
+       Close Sidenav Right
+     </md-button>
+   </md-content>
+
+ </md-sidenav>
+    </main> -->
+
+    <footer>
+      <iframe id="spotifyPlayer" src="https://embed.spotify.com/?uri=spotify%3Aalbum%3A2rp5riHULWgrXPsDtsp1ir&theme=black"
+        width="100%" height="80" frameborder="0" allowtransparency="true"></iframe>
+    </footer>
+
+  </div>
+
+  <!-- Non Angular Libraries -->
+  <script src="vendor/lodash/dist/lodash.min.js"></script>
+  <script src="vendor/postal.js/lib/postal.min.js"></script>
+  <script src="vendor/moment/min/moment.min.js"></script>
+
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="vendor/angular/angular.min.js"></script>
+  <script src="vendor/angular-animate/angular-animate.min.js"></script>
+  <script src="vendor/angular-aria/angular-aria.min.js"></script>
+  <script src="vendor/angular-messages/angular-messages.min.js"></script>
+  <script src="vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="vendor/angular-css/angular-css.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="vendor/angular-material/angular-material.min.js"></script>
+
+  <!-- Your application bootstrap  -->
+  <script src="js/somusicapp.js"></script>
+  <script src="js/ranking.service.js"></script>
+  <script src="home/home.js"></script>
+  <script src="directives/entry/entry.js"></script>
 
   <script>
     (function(i, s, o, g, r, a, m) {
@@ -147,6 +146,6 @@
     ga('send', 'pageview');
 
   </script>
-</body>
 
+</body>
 </html>

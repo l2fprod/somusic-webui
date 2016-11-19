@@ -1,0 +1,56 @@
+.somusic-entry {
+  position: relative;
+}
+
+.somusic-entry-rating {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  display: block;
+  padding: 8px;
+  border-radius: 10px;
+  height: 10px;
+  font-size: 12px;
+  line-height: 12px;
+  text-align: center;
+  visibility: hidden;
+}
+
+.somusic-entry:hover .somusic-entry-rating {
+  visibility: visible;
+}
+
+.somusic-entry-image {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.somusic-entry-details {
+  padding: 10px;
+}
+
+.somusic-entry-details-for-hero {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  visibility: hidden;
+}
+
+.somusic-entry:hover .somusic-entry-details-for-hero {
+  visibility: visible;
+}
+
+.somusic-entry-detail {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.somusic-entry-detail-artist {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 10px;
+  font-weight: bold;
+}

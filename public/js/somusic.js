@@ -1,70 +1,88 @@
-// SOmusic.js
-function queryParameters() {
-  var result = {};
-  var params = window.location.search.split(/\?|\&/);
-  params.forEach(function (it) {
-    if (it) {
-      var param = it.split("=");
-      result[param[0]] = param[1];
-    }
+/*global angular*/
+(function () {
+
+  // listen for request sent over XHR and automatically show/hide spinner
+  angular.module('ngLoadingSpinner', [])
+    .directive('spinner', ['$http', function ($http) {
+      return {
+        link: function (scope, elm, attrs) {
+          scope.isLoading = function () {
+            return $http.pendingRequests.length > 0;
+          };
+          scope.$watch(scope.isLoading, function (loading) {
+            if (loading) {
+              document.getElementById('loadingProgress').style.visibility = "visible";
+            } else {
+              document.getElementById('loadingProgress').style.visibility = "hidden";
+            }
+          });
+        }
+      };
+    }]);
+
+  // angular app initialization
+  var app = angular.module('somusicApp', [
+    'ngMaterial',
+    'ngLoadingSpinner',
+    'ui.router',
+    'angularCSS',
+  ]);
+
+  app.config(function ($provide) {
+    $provide.decorator('$rootScope', ['$delegate', function ($delegate) {
+      Object.defineProperty($delegate.constructor.prototype, '$bus', {
+        get: function() {
+          var self = this;
+          return {
+            subscribe: function() {
+              var sub = postal.subscribe.apply(postal, arguments);
+              self.$on('$destroy',
+                function() {
+                  sub.unsubscribe();
+                }
+              );
+            },
+            publish: postal.publish.bind(postal),
+          };
+        },
+        enumerable: false
+        });
+        return $delegate;
+      }]);
   });
-  return result;
-};
 
-function updateDates(previous, current, next) {
-  var currentMoment = moment(current, "YYYY-MM-DD");
+  app.controller('MainController', ['$scope', '$state' , function ($scope, $state) {
+    var controller = this;
 
-  $("#current").html("<div class=month>" + currentMoment.format("MMM") + "</div> <div class=day>" + currentMoment.format("D") + "</div>");
-  $("#previous").attr("href", "?date=" + previous);
-  $("#next").attr("href", "?date=" + next);
+    $scope.lightTheme = false;
 
-  $(document).bind('keydown', 'left', function () {
-    location.href = "?date=" + previous;
+    $scope.setTheme = function(theme) {
+      console.log('Theme', theme);
+      document.getElementById("theme").href=theme;
+      document.getElementById('spotifyPlayer').src =
+        document.getElementById('spotifyPlayer').src.replace($scope.lightTheme ? "black" : "white",
+      $scope.lightTheme ? "white" : "black");
+    };
+
+    $scope.$bus.subscribe({
+      channel: 'entries',
+      topic: 'entry.select',
+      callback: function(data, envelope) {
+        var url = data.link;
+        if (url.indexOf("?")>=0) {
+          url = url.substring(0, url.indexOf("?"));
+        }
+        url = url.replace("https://open.spotify.com/", "spotify:");
+        url = url.replace("/",":");
+        url = "https://embed.spotify.com/?theme=" + ($scope.lightTheme ? "white" : "black") + "&uri=" + encodeURIComponent(url);
+        console.log('Setting song to', url);
+        document.getElementById('spotifyPlayer').src = url;
+      }
+    });
+  }]);
+
+  app.config(function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise("/");
   });
-  $(document).bind('keydown', 'right', function () {
-    location.href = "?date=" + next;
-  });
-};
 
-$(document).ready(function () {
-  var tileTemplate = Handlebars.compile($("#tile-template").html());
-
-  $('[data-toggle="popover"]').popover()
-
-  var params = queryParameters();
-  console.log(params);
-
-  $.get("api/1/ranking/" + (params.date ? params.date : "")).done(function (data) {
-    updateDates(data.prev, data.current, data.next);
-
-    var tilesContainer = $('#tiles');
-    tilesContainer.empty();
-    if (data.entries.length > 0) {
-      $.each(data.entries, function (index, entry) {
-        var element = tileTemplate(entry);
-        tilesContainer.append(element);
-      });
-
-      $('#tiles').masonry({
-        gutter: 0,
-        itemSelector: '.tile',
-        "isFitWidth": true
-      });
-
-    } else {
-      tilesContainer.append('<div class="tiles-loading">Nothing yet for that day :(</div>');
-    }
-  });
-});
-
-// track scrolling and show header
-var headerModified = false;
-$(document).scroll(function () {
-  if (!headerModified && $(this).scrollTop() > 10) {
-    $("#header").addClass("header-scrolled");
-    headerModified = true;
-  } else if ($(this).scrollTop() < 10) {
-    $("#header").removeClass("header-scrolled");
-    headerModified = false;
-  }
-});
+})();
