@@ -1,6 +1,7 @@
 .somusic-entry {
   position: relative;
   overflow: hidden;
+  outline: none;
 }
 
 .somusic-entry:hover {
@@ -32,19 +33,8 @@
 }
 
 .somusic-entry-details {
+  overflow: hidden;
   padding: 10px;
-}
-
-.somusic-entry-details-for-hero {
-  position: absolute;
-  width: 100%;
-  bottom: 0px;
-  left: 0px;
-  visibility: hidden;
-}
-
-.somusic-entry:hover .somusic-entry-details-for-hero {
-  visibility: visible;
 }
 
 .somusic-entry-detail {
@@ -58,4 +48,32 @@
   letter-spacing: 2px;
   font-size: 10px;
   font-weight: bold;
+}
+
+@media(max-width: 599px) {
+  .somusic-entry-detail {
+    font-size: 20px;
+  }
+  .somusic-entry-detail-artist {
+    font-size: 14px;
+  }
+
+  img.somusic-entry-image {
+    width: 78px !important;
+    height: 78px !important;
+  }
+}
+
+@media(min-width: 600px) {
+  .somusic-entry-details-for-hero {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    visibility: hidden;
+  }
+
+  .somusic-entry:hover .somusic-entry-details-for-hero {
+    visibility: visible;
+  }
 }

@@ -1,5 +1,5 @@
-<div class="somusic-entry">
-  <img ng-click="updatePlayer();" class="somusic-entry-image" ng-src="{{entry.image}}"/>
+<div class="somusic-entry" layout="column" layout-xs="row" ng-click="updatePlayer();" >
+  <img class="somusic-entry-image" ng-src="{{entry.image}}" flex-xs="none"/>
   <div class="somusic-entry-rating">{{entry.count}}</div>
   <div ng-if="entry.count" class="somusic-entry-rating">{{entry.count}}</div>
   <div ng-class="{'somusic-entry-details-for-hero': hero}" class="somusic-entry-details">

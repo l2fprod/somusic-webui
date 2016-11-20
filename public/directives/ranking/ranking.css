@@ -23,3 +23,17 @@
 
 .hero-entry-container-4 {
 }
+
+@media(max-width: 599px) {
+  .super-hero-entry-container,
+  .hero-entry-container-1,
+  .hero-entry-container-2,
+  .hero-entry-container-3,
+  .hero-entry-container-4 {
+    padding: 8px;
+  }
+
+  .hero-entries-container {
+    margin: 0;
+  }
+}

@@ -47,6 +47,7 @@ footer {
   padding: 48px;
   padding-top: 24px;
   overflow-y: auto;
+  width: 100%;
 }
 
 .sidebar-section {
@@ -72,14 +73,20 @@ footer {
   text-decoration: none;
   text-transform: uppercase;
   font-weight: normal;
-  margin: 16px;
   display: block;
+  margin: 16px;
   font-size: 12px;
 }
 
 .sidebar-section-route.active {
   font-weight: bold;
   letter-spacing: 2px;
+}
+
+@media(max-width: 599px) {
+  main {
+    padding: 0 !important;
+  }
 }
 
 main {

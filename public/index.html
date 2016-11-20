@@ -22,7 +22,7 @@
           <span class="title md-title">
             SOmusic
           </span>
-          <span class="subtitle">
+          <span class="subtitle" hide-xs>
             music from social network
           </span>
           <span flex></span>
@@ -54,8 +54,8 @@
       <md-progress-linear class="loadingProgress" id="loadingProgress" md-mode="indeterminate"></md-progress-linear>
     </spinner>
 
-    <div class="container" layout="row" flex>
-      <div class="sidebar" flex="20">
+    <div class="container" layout="row" layout-xs="column" flex>
+      <div class="sidebar" flex-gt-xs="20" flex-xs="none" hide-xs>
 
         <div class="sidebar-section">
           <div class="sidebar-section-title">
@@ -89,7 +89,7 @@
           </p>
         </div>
       </div>
-      <main flex layout="row">
+      <main flex layout="row" flex-xs="grow">
         <div flex ui-view layout="row">
           <p>
             content here

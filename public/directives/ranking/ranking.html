@@ -1,12 +1,12 @@
 <div class="ranking-no-data" ng-if="!ranking || !ranking.entries || ranking.entries.length == 0">
 </div>
 <div ng-if="ranking && ranking.entries && ranking.entries.length > 0">
-<div layout="row" class="hero-entries-container">
+<div layout="row" class="hero-entries-container" layout-xs="column">
   <!-- big image -->
-  <div flex="50" class="super-hero-entry-container">
+  <div flex-gt-xs="50" class="super-hero-entry-container" flex-xs="none">
     <somusic-entry entry="ranking.entries[0]" hero="true"/>
   </div>
-  <div flex="25">
+  <div flex-gt-xs="25">
     <div layout="column">
       <div class="hero-entry-container-1">
         <somusic-entry entry="ranking.entries[1]" hero="true"/>
@@ -16,7 +16,7 @@
       </div>
     </div>
   </div>
-  <div flex="25">
+  <div flex-gt-xs="25">
     <div layout="column">
       <div class="hero-entry-container-2">
         <somusic-entry entry="ranking.entries[2]" hero="true"/>
@@ -28,8 +28,8 @@
   </div>
 </div>
 
-<div layout="row" layout-wrap>
-  <div class="entry-container" ng-if="$index > 4" ng-repeat="entry in ranking.entries" flex="20">
+<div layout="row" layout-wrap layout-xs="column">
+  <div class="entry-container" ng-if="$index > 4" ng-repeat="entry in ranking.entries" flex-gt-xs="20" flex-xs="noshrink">
     <somusic-entry entry="entry"/>
   </div>
 </div>
