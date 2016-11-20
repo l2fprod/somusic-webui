@@ -1,0 +1,76 @@
+body, html {
+  background: #FFF6DA;
+  color: #40496a;
+}
+
+a {
+  color: #40496a;
+}
+
+header md-toolbar {
+  background-color: #2D466E !important;
+}
+
+.subtitle {
+  color: rgb(170, 170, 170);
+}
+
+spinner {
+  background-color: #2D466E;
+}
+
+md-progress-linear .md-container {
+  background-color: #E77A4D;
+}
+
+footer {
+  background-color: #282828;
+}
+
+footer md-toolbar {
+  background-color: #ffffff !important;
+}
+
+md-tabs .md-tab {
+  color: #40496a;
+}
+
+md-tabs .md-tab.md-active {
+  color: #B9202A;
+}
+
+md-tabs .md-tab .md-ripple-container {
+  color: white;
+}
+
+md-tabs md-ink-bar {
+  color: #B9202A;
+  background-color: #B9202A;
+}
+
+/* entry.css */
+.somusic-entry {
+  background-color: #E77A4D;
+  color: white;
+}
+
+.somusic-entry-rating {
+  background-color: #E77A4D;
+}
+
+.somusic-entry:hover .somusic-entry-rating {
+  opacity: 0.9;
+}
+
+.somusic-entry-image {
+  opacity: 1;
+}
+
+.somusic-entry-image:hover {
+  opacity: 0.50;
+}
+
+.somusic-entry-details-for-hero {
+  background-color: #E77A4D;
+  opacity: 0.9;
+}

@@ -1,0 +1,89 @@
+body, html {
+  background: white;
+  color: black;
+}
+
+a {
+  color: black;
+}
+
+header md-toolbar {
+  background-color: #ebebeb !important;
+}
+
+.title {
+  color: black;
+}
+
+.subtitle {
+  color: rgb(110, 110, 110);
+}
+
+.theme-light {
+  visibility: hidden;
+}
+
+md-toolbar md-icon {
+  fill: black !important;
+}
+
+spinner {
+  background-color: #ebebeb;
+}
+
+md-progress-linear .md-container {
+  background-color: #E77A4D;
+}
+
+footer {
+  background-color: #ffffff;
+}
+
+footer md-toolbar {
+  background-color: #ffffff !important;
+}
+
+md-tabs .md-tab {
+  color: black;
+}
+
+md-tabs .md-tab.md-active {
+  color: #E77A4D;
+}
+
+md-tabs .md-tab .md-ripple-container {
+  color: white;
+}
+
+md-tabs md-ink-bar {
+  color: #E77A4D;
+  background-color: #E77A4D;
+}
+
+/* entry.css */
+.somusic-entry {
+  background-color: #f4f4f4;
+  color: black;
+}
+
+.somusic-entry-rating {
+  background-color: #E77A4D;
+  color: white;
+}
+
+.somusic-entry:hover .somusic-entry-rating {
+  opacity: 0.9;
+}
+
+.somusic-entry-image {
+  opacity: 1;
+}
+
+.somusic-entry-image:hover {
+  opacity: 0.50;
+}
+
+.somusic-entry-details-for-hero {
+  background-color: #f4f4f4;
+  opacity: 0.9;
+}

@@ -1,0 +1,15 @@
+<div layout="column" flex ng-controller="HomeController as controller">
+  <md-tabs class="period-selector" md-border-bottom md-autoselect>
+    <md-tab label="Today" md-on-select="controller.today();">
+    </md-tab>
+    <md-tab label="Yesterday" md-on-select="controller.yesterday();">
+    </md-tab>
+    <md-tab label="This week" md-on-select="controller.thisWeek();">
+    </md-tab>
+    <md-tab label="This month" md-on-select="controller.thisMonth();">
+    </md-tab>
+  </md-tabs>
+
+  <somusic-ranking flex="grow" ranking="controller.rankings" />
+
+</div>

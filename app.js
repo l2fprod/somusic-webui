@@ -23,11 +23,10 @@ if (newrelicCreds) {
 var
   express = require('express'),
   app = express(),
-  SwaggerExpress = require('swagger-express-mw'),
   bodyParser = require('body-parser');
 
 // get the database ready
-var Database = require("./api/helpers/database.js");
+var Database = require("./lib/database.js");
 Database.initialize(appEnv);
 
 app.use(bodyParser.json())
@@ -35,17 +34,7 @@ app.set("json spaces", "  ");
 
 // serve the files out of ./public as our main files
 app.use(express.static(__dirname + '/public'));
-app.use('/api/swagger', express.static(__dirname + '/api/swagger'));
-app.use('/apidocs/', express.static(__dirname + '/public/vendor/swagger-ui/dist'));
-
-// initialize Swagger API
-var config = {
-  appRoot: __dirname // required config
-};
-SwaggerExpress.create(config, function(err, swaggerExpress) {
-  if (err) { throw err; }
-  swaggerExpress.register(app);
-});
+app.use('/api/1/ranking', require('./lib/ranking.js'));
 
 // start server on the specified port and binding host
 app.listen(appEnv.port, appEnv.bind, function() {
