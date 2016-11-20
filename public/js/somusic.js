@@ -62,7 +62,6 @@
     $scope.toggleLight = function() {
       $scope.lightTheme = !$scope.lightTheme;
       var theme = $scope.lightTheme ? 'css/somusic-light.css': 'css/somusic-dark.css'
-      console.log('Theme', theme);
       document.getElementById("theme").href=theme;
       document.getElementById('spotifyPlayer').src =
         document.getElementById('spotifyPlayer').src.replace($scope.lightTheme ? "black" : "white",
