@@ -1,8 +1,8 @@
 body, html {
-  background: -moz-linear-gradient(top, #0e142d 0%, #090e21 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #0e142d 0%,#090e21 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #0e142d 0%,#090e21 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0e142d', endColorstr='#090e21',GradientType=0 ); /* IE6-9 */
+  background: -moz-linear-gradient(top, #24242c 0%, #1a191f 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #24242c 0%,#1a191f 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #24242c 0%,#1a191f 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#24242c', endColorstr='#1a191f',GradientType=0 ); /* IE6-9 */
   color: #eaeaea;
 }
 
@@ -11,7 +11,7 @@ a {
 }
 
 header md-toolbar {
-  background-color: #191f41 !important;
+  background-color: #1a191f !important;
 }
 
 .subtitle {
@@ -19,19 +19,23 @@ header md-toolbar {
 }
 
 spinner {
-  background-color: #191f41;
+  background-color: #1a191f;
 }
 
 md-progress-linear .md-container {
-  background-color: #191f41;
+  background-color: #1a191f;
+}
+
+md-progress-linear .md-container .md-bar {
+  background-color: #ed215e;
 }
 
 .sidebar-section-title {
-  color: #40496a;
+  color: #ed215e;
 }
 
 .sidebar-section-separator {
-  border-bottom-color: #40496a;
+  border-bottom-color: #ed215e;
 }
 
 footer {
@@ -43,11 +47,20 @@ footer md-toolbar {
 }
 
 md-tabs .md-tab {
-  color: #40496a;
+  color: rgb(170, 170, 170);
 }
 
 md-tabs .md-tab.md-active {
   color: white;
+}
+
+md-tabs .md-tab .md-ripple-container {
+  color: #ed215e;
+}
+
+md-tabs md-ink-bar {
+  color: #ed215e;
+  background-color: #ed215e;
 }
 
 md-tabs md-ink-bar {
@@ -58,7 +71,7 @@ md-tabs md-ink-bar {
 }
 
 ::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px #191f41;
+  -webkit-box-shadow: inset 0 0 6px #1a191f;
   border-radius: 10px;
 }
 
@@ -71,12 +84,12 @@ md-tabs md-ink-bar {
 
 /* entry.css */
 .somusic-entry {
-  background-color: #121832;
+  background-color: #1a191f;
   color: white;
 }
 
 .somusic-entry-rating {
-  background-color: #191f41;
+  background-color: #1a191f;
 }
 
 .somusic-entry:hover .somusic-entry-rating {
@@ -92,6 +105,6 @@ md-tabs md-ink-bar {
 }
 
 .somusic-entry-details-for-hero {
-  background-color: #121832;
+  background-color: #1a191f;
   opacity: 0.9;
 }

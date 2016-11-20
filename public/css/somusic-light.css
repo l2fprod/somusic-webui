@@ -23,14 +23,6 @@ header md-toolbar {
   visibility: hidden;
 }
 
-md-switch.md-checked .md-thumb {
-  background-color: rgb(231, 122, 77);
-}
-
-md-switch.md-checked .md-bar {
-  background-color: rgba(231, 122, 77, 0.5);
-}
-
 md-toolbar md-icon {
   fill: black !important;
 }

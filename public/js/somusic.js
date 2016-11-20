@@ -58,7 +58,7 @@
       return RankingService.getCurrentDate().subtract(index, 'months');
     });
 
-    $scope.lightTheme = true;
+    $scope.lightTheme = false;
     $scope.toggleLight = function() {
       $scope.lightTheme = !$scope.lightTheme;
       var theme = $scope.lightTheme ? 'css/somusic-light.css': 'css/somusic-dark.css'
