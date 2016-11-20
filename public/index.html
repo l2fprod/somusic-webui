@@ -10,7 +10,7 @@
 
   <link rel="stylesheet" href="vendor/angular-material/angular-material.min.css">
   <link rel="stylesheet" href="css/somusic.css">
-  <link rel="stylesheet" href="css/somusic-dark.css" id="theme">
+  <link rel="stylesheet" href="css/somusic-light.css" id="theme">
   <link rel="icon" type="image/x-icon" sizes="any" href="images/favico.png"/>
 </head>
 <body ng-app="somusicApp" ng-cloak layout="row" ng-controller="MainController as controller">
@@ -26,8 +26,9 @@
             music from social network
           </span>
           <span flex></span>
-
-          <md-switch ng-model="lightTheme" ng-change="setTheme(lightTheme ? 'css/somusic-light.css': 'css/somusic-dark.css')"></md-switch>
+          <md-button class="md-icon-button" ng-click="toggleLight();">
+            <md-icon md-svg-src="images/lightbulb.svg"></md-icon>
+          </md-button>
           <md-button class="md-icon-button" href="https://github.com/l2fprod/somusic-webui">
             <md-icon md-svg-src="images/github-circle.svg"></md-icon>
           </md-button>
@@ -55,23 +56,41 @@
 
     <div class="container" layout="row" flex>
       <div class="sidebar" flex="20">
-        <span class="md-headline">
-          About
-        </span>
-        <p>
-          People are sharing what they are listening to on social networks.
-        </p>
-        <p>
-          SOmusic gathers this information and produces rankings.
-          It's your daily dose of what's popular on social networks.
-        </p>
-        <p>
-          SOmusic is built with <a href="https://ibm.com/bluemix">IBM Bluemix</a>,
-          Cloudant, <a href="https://console.ng.bluemix.net/catalog/insights-for-twitter/">Insights for Twitter</a> and the Spotify Web API.
-        </p>
+
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">
+            Popular
+          </div>
+
+          <div>
+            <a class="sidebar-section-route" ui-sref-active="active" ui-sref="home()">Recently</a>
+          </div>
+
+          <div ng-repeat="month in currentMonths track by $index">
+            <a class="sidebar-section-route" ui-sref-active="active"
+              ui-sref="by_month({year: month.format('YYYY'), month: month.format('MM')})">
+              {{month.format('MMMM YYYY')}}
+            </a>
+          </div>
+        </div>
+
+        <div class="sidebar-section-separator"></div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">
+            About
+          </div>
+          <p>
+            SOmusic is your daily dose of what's popular on social networks.
+          </p>
+          <p>
+            Built with <a href="https://ibm.com/bluemix">IBM Bluemix</a>,
+            Cloudant, <a href="https://console.ng.bluemix.net/catalog/insights-for-twitter/">Insights for Twitter</a> and the Spotify Web API.
+          </p>
+        </div>
       </div>
-      <main flex>
-        <div ui-view>
+      <main flex layout="row">
+        <div flex ui-view layout="row">
           <p>
             content here
           </p>
@@ -126,8 +145,12 @@
   <!-- Your application bootstrap  -->
   <script src="js/somusic.js"></script>
   <script src="js/ranking.service.js"></script>
-  <script src="home/home.js"></script>
+
   <script src="directives/entry/entry.js"></script>
+  <script src="directives/ranking/ranking.js"></script>
+
+  <script src="routes/home/home.js"></script>
+  <script src="routes/by_month/by_month.js"></script>
 
   <script>
     (function(i, s, o, g, r, a, m) {

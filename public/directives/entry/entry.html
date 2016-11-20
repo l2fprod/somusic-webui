@@ -1,6 +1,7 @@
 <div class="somusic-entry">
   <img ng-click="updatePlayer();" class="somusic-entry-image" ng-src="{{entry.image}}"/>
   <div class="somusic-entry-rating">{{entry.count}}</div>
+  <div ng-if="entry.count" class="somusic-entry-rating">{{entry.count}}</div>
   <div ng-class="{'somusic-entry-details-for-hero': hero}" class="somusic-entry-details">
     <div class="somusic-entry-detail somusic-entry-detail-artist" title="{{entry.artist}}">
       {{entry.artist}}

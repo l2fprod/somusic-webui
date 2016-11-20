@@ -1,5 +1,10 @@
 .somusic-entry {
   position: relative;
+  overflow: hidden;
+}
+
+.somusic-entry:hover {
+  cursor: pointer;
 }
 
 .somusic-entry-rating {

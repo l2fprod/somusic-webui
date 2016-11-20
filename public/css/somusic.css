@@ -45,7 +45,42 @@ footer {
 }
 
 .sidebar {
-  padding: 16px;
+  padding: 48px;
+  padding-top: 24px;
+  overflow-y: auto;
+}
+
+.sidebar-section {
+  margin-bottom: 24px;
+}
+
+.sidebar-section-separator {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.sidebar-section-title {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+.sidebar-section-route {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: normal;
+  margin: 16px;
+  display: block;
+  font-size: 12px;
+}
+
+.sidebar-section-route.active {
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
 main {

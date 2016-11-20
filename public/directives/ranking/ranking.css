@@ -1,9 +1,7 @@
-div.home {
-  margin: 0 auto;
-}
-
-.period-selector {
-  padding: 8px;
+.ranking-no-data {
+  position: relative;
+  top: 40%;
+  vertical-align: middle;
 }
 
 .entry-container {

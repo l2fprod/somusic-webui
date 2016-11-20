@@ -51,12 +51,17 @@
       }]);
   });
 
-  app.controller('MainController', ['$scope', '$state' , function ($scope, $state) {
+  app.controller('MainController', ['$scope', '$state', 'RankingService', function ($scope, $state, RankingService) {
     var controller = this;
 
-    $scope.lightTheme = false;
+    $scope.currentMonths = _.range(12).map(function(value, index) {
+      return RankingService.getCurrentDate().subtract(index, 'months');
+    });
 
-    $scope.setTheme = function(theme) {
+    $scope.lightTheme = true;
+    $scope.toggleLight = function() {
+      $scope.lightTheme = !$scope.lightTheme;
+      var theme = $scope.lightTheme ? 'css/somusic-light.css': 'css/somusic-dark.css'
       console.log('Theme', theme);
       document.getElementById("theme").href=theme;
       document.getElementById('spotifyPlayer').src =

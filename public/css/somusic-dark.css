@@ -26,6 +26,14 @@ md-progress-linear .md-container {
   background-color: #191f41;
 }
 
+.sidebar-section-title {
+  color: #40496a;
+}
+
+.sidebar-section-separator {
+  border-bottom-color: #40496a;
+}
+
 footer {
   background-color: #282828;
 }
