@@ -32,6 +32,10 @@ spinner {
 }
 
 md-progress-linear .md-container {
+  background-color: #ebebeb;
+}
+
+md-progress-linear .md-container .md-bar {
   background-color: #E77A4D;
 }
 

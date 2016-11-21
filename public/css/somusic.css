@@ -2,6 +2,7 @@
 body, html {
   height: 100%;
   margin: 0 auto;
+  font-size: 14px;
 }
 
 a {
@@ -17,6 +18,10 @@ a {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.twitter-icon {
+  fill: #1b95e0 !important;
 }
 
 md-progress-linear {
